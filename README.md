@@ -6,11 +6,60 @@ The purpose of this repository is to demonstrate the various users of handlebars
 
 ### Setup :open_book:
 
+1. cd into the folder
+2. Download the needed packages
+
+```
+npm install
+```
+
+3. Start the file
+
+```
+node index.js
+```
+
 ### User Stories :telescope:
 
-1. Users will be able to understand how handlebars work, and be able to utilize this
+1. Users will be able to understand how handlebars work, and be able to
 
-### Wireframe :bulb:
+### Useful Code Snippets :bulb:
+
+#### To loop through a passed in array
+
+// in index.js
+
+```
+app.get("/blog", function (req, res) {
+  res.render("blog", {
+    post: {
+      author: "Lezzles",
+      image: "https://picsum.photos/500/500",
+      comments: [
+        "darling, this is an absolutely fantastic blog",
+        "yes, dear, it's absolutely wonderful!",
+      ],
+    },
+  });
+});
+```
+
+In views/blog.hbs
+
+```
+    {{#if post.comments}}
+                    <ul class="list-group">
+                        {{#each post.comments}}
+                        <li class="list-group-item">{{this}}</li>
+                        {{/each}}
+                    </ul>
+                    {{else}}
+                    <ul class="list-group">
+                        <li class="list-group-item">Be first to comment on this post</li>
+                    </ul>
+                    {{/if}}
+
+```
 
 ## Sprint :athletic_shoe:
 
