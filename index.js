@@ -23,4 +23,18 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", (req, res) => {
   res.render("home");
 });
+
+app.get("/blog", function (req, res) {
+  res.render("blog", {
+    post: {
+      author: "Lezzles",
+      image: "https://picsum.photos/500/500",
+      comments: [
+        "darling, this is an absolutely fantastic blog",
+        "yes, dear, it's absolutely wonderful!",
+      ],
+    },
+  });
+});
+
 app.listen(3000, () => console.log("Running on 3000"));
