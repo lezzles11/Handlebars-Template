@@ -25,6 +25,64 @@ node index.js
 
 ### Useful Code Snippets :bulb:
 
+#### To loop through an array of objects
+
+in partials/posts.hbs
+
+```
+<div class="posts">
+    <div class="row justify-content-center">
+        {{#each posts}}
+        <div class="col-lg-7" style="margin-top: 50px;">
+            <div class="card">
+
+                <img src="{{this.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Posted by {{this.author}}</h5>
+
+                    {{#if this.comments}}
+                    <ul class="list-group">
+                        {{#each this.comments}}
+                        <li class="list-group-item">{{getShortComment this}}</li>
+                        {{/each}}
+                    </ul>
+                    {{else}}
+                    <ul class="list-group">
+                        <li class="list-group-item">Be first to comment on this post</li>
+                    </ul>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+```
+
+in index.js
+
+```
+app.get("/", (req, res) => {
+  res.render("home", {
+    posts: [
+      {
+        author: "Lesley",
+        image: "https://picsum.photos/500/500",
+        comments: ["why, this is a wonderful post!"],
+      },
+      {
+        author: "Lezzles",
+        image: "https://picsum.photos/500/500",
+        comments: [
+          "darling, this is an absolutely fantastic blog",
+          "yes, dear, it's absolutely wonderful!",
+        ],
+      },
+    ],
+  });
+});
+```
+
 #### To loop through a passed in array
 
 // in index.js
