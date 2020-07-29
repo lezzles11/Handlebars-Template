@@ -4,6 +4,8 @@
 
 The purpose of this repository is to demonstrate the various users of handlebars - namely, how to loop through data, use partials, as well as layout the page well.
 
+![How Express Works](https://www.dropbox.com/s/oaky3r5p7tuji5s/Express%20and%20Frontend.png?raw=1)
+
 ### Setup :open_book:
 
 1. cd into the folder
